@@ -1,0 +1,31 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+
+@font-face {
+    font-family: "Montserrat", sans-serif;
+    src: url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap"), local('Montserrat');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto Slab", serif;
+    src: url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"), local('Roboto');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Montserrat";
+}
+
+a,
+p,
+div,
+li {
+    font-family: "Roboto";
+}
