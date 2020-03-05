@@ -1,14 +1,10 @@
 <template>
-  <div>
-    <top-bar />
-  </div>
+    <div>HELLO</div>
 </template>
 
 <script>
-import TopBar from '../components/TopBar.vue'
 export default {
-    components: {
-        TopBar
-    }
+    layout: 'default',
+    components: {}
 }
 </script>
