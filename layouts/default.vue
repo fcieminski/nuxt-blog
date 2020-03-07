@@ -5,6 +5,7 @@
             <div class="main__container">
                 <nuxt />
             </div>
+            <aside class="main__aside"></aside>
         </main>
         <blog-footer />
     </div>
@@ -27,10 +28,17 @@ export default {
 <style lang="scss" scoped>
 .main {
     background-color: #cfd8dc;
+    display: grid;
+    height: calc(100vh - 64px - 123px);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 'main main main aside';
     .main__container {
-        margin: 0 auto;
-        width: 1200px;
-        height: calc(100vh - 64px);
+        grid-area: main;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .main__aside {
+        grid-area: aside;
     }
 }
 </style>

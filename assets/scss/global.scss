@@ -5,14 +5,14 @@
 
 @font-face {
     font-family: "Montserrat", sans-serif;
-    src: url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap"), local('Montserrat');
+    src: url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap"), local("Montserrat");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Roboto Slab", serif;
-    src: url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"), local('Roboto');
+    src: url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"), local("Roboto");
     font-weight: normal;
     font-style: normal;
 }
@@ -21,11 +21,29 @@ h1,
 h2,
 h3 {
     font-family: "Montserrat";
-}   
+}
 
 a,
 p,
 div,
 li {
     font-family: "Roboto";
+}
+
+@for $n from 1 through 30 {
+    .ma-#{$n} {
+        margin: #{$n * 4}px;
+    }
+    .mb-#{$n} {
+        margin-bottom: #{$n * 4}px;
+    }
+    .mt-#{$n} {
+        margin-top: #{$n * 4}px;
+    }
+    .ml-#{$n} {
+        margin-left: #{$n * 4}px;
+    }
+    .mr-#{$n} {
+        margin-right: #{$n * 4}px;
+    }
 }

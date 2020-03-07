@@ -1,15 +1,17 @@
 <template>
-    <div>HEllo</div>
+
 </template>
 
 <script>
+
 export default {
     layout: 'default',
     name: '',
     data() {
         return {}
     },
-    components: {},
+    components: {
+    },
     created() {},
     computed: {},
     methods: {}

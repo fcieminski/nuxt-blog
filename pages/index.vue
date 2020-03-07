@@ -1,10 +1,13 @@
 <template>
-    <div>HELLO</div>
+        <blog-posts />
 </template>
 
 <script>
+import BlogPosts from '../components/BlogPosts'
 export default {
     layout: 'default',
-    components: {}
+    components: {
+        BlogPosts
+    }
 }
 </script>
