@@ -1,7 +1,14 @@
 <template>
-    <v-footer dark padless>
+    <v-footer fixed dark padless>
         <v-card flat tile class="footer--color white--text text-center">
-            <v-card-text>
+            <v-card-text class="d-flex justify-space align-center">
+                <div>
+
+                {{ new Date().getFullYear() }} —
+                <strong>Filip Chamier-Ciemiński</strong>
+                </div>
+                <div>
+
                 <v-btn
                     v-for="icon in icons"
                     :key="icon"
@@ -10,11 +17,7 @@
                 >
                     <v-icon size="24px">{{ icon }}</v-icon>
                 </v-btn>
-            </v-card-text>
-            <v-divider></v-divider>
-            <v-card-text class="white--text text--align">
-                {{ new Date().getFullYear() }} —
-                <strong>Filip Chamier-Ciemiński</strong>
+                </div>
             </v-card-text>
         </v-card>
     </v-footer>

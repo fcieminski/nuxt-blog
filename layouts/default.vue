@@ -1,12 +1,16 @@
 <template>
     <div>
         <top-bar />
-        <main class="main">
-            <div class="main__container">
-                <nuxt />
-            </div>
-            <aside class="main__aside"></aside>
-        </main>
+        <div class="main__box">
+            <main class="main">
+                <div class="main__container">
+                    <nuxt />
+                </div>
+                <aside class="aside__container">
+                    <div class="main__aside"></div>
+                </aside>
+            </main>
+        </div>
         <blog-footer />
     </div>
 </template>
@@ -26,19 +30,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main {
-    background-color: #cfd8dc;
-    display: grid;
-    height: calc(100vh - 64px - 123px);
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 'main main main aside';
-    .main__container {
-        grid-area: main;
-        overflow-y: scroll;
-        overflow-x: hidden;
-    }
-    .main__aside {
-        grid-area: aside;
+.main__box {
+    background-color: #263238;
+    .main {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 56px;
+        width: 90%;
+        .main__container {
+            // width: calc(100vw - 400px);
+        }
+        .aside__container {
+            flex: 0 0 400px;
+            .main__aside {
+                background-color: white;
+                position: fixed;
+                width: 400px;
+                height: 100vh;
+            }
+        }
     }
 }
 </style>

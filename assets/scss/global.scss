@@ -47,3 +47,19 @@ li {
         margin-right: #{$n * 4}px;
     }
 }
+
+.d-flex{
+    display: flex;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.justify-space{
+    justify-content: space-between;
+}
+
+.align-center{
+    align-items: center;
+}
