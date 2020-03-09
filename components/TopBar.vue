@@ -2,7 +2,7 @@
     <div>
         <v-app-bar fixed color="#00695C" dark>
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
-            <v-toolbar-title>Page title</v-toolbar-title>
+            <v-toolbar-title class="white--text">Page title</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn icon>
                 <v-icon>mdi-heart</v-icon>

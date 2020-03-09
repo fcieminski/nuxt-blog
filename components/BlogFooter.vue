@@ -2,21 +2,19 @@
     <v-footer fixed dark padless>
         <v-card flat tile class="footer--color white--text text-center">
             <v-card-text class="d-flex justify-space align-center">
-                <div>
-
-                {{ new Date().getFullYear() }} —
-                <strong>Filip Chamier-Ciemiński</strong>
+                <div class="white--text">
+                    {{ new Date().getFullYear() }} —
+                    <strong>Filip Chamier-Ciemiński</strong>
                 </div>
                 <div>
-
-                <v-btn
-                    v-for="icon in icons"
-                    :key="icon"
-                    class="mx-4 white--text"
-                    icon
-                >
-                    <v-icon size="24px">{{ icon }}</v-icon>
-                </v-btn>
+                    <v-btn
+                        v-for="icon in icons"
+                        :key="icon"
+                        class="mx-4 white--text"
+                        icon
+                    >
+                        <v-icon size="24px">{{ icon }}</v-icon>
+                    </v-btn>
                 </div>
             </v-card-text>
         </v-card>
@@ -36,11 +34,13 @@ export default {
 
 <style lang='scss' scoped>
 .footer--color {
-    background-color: #004d40;
+    color: white;
+    background-color: #00695c;
     width: 100%;
     text-align: center;
     .text--align {
         text-align: initial;
     }
+   
 }
 </style>

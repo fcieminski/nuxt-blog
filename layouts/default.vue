@@ -6,9 +6,7 @@
                 <div class="main__container">
                     <nuxt />
                 </div>
-                <aside class="aside__container">
-                    <div class="main__aside"></div>
-                </aside>
+                <blog-aside />
             </main>
         </div>
         <blog-footer />
@@ -18,10 +16,12 @@
 <script>
 import TopBar from '../components/TopBar.vue'
 import BlogFooter from '../components/BlogFooter.vue'
+import BlogAside from '../components/BlogAside.vue'
 export default {
     components: {
         TopBar,
-        BlogFooter
+        BlogFooter,
+        BlogAside
     },
     data() {
         return {}
@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 .main__box {
-    background-color: #263238;
+    background-color: white;
     .main {
         display: flex;
         justify-content: space-between;
@@ -43,15 +43,6 @@ export default {
         width: 90%;
         .main__container {
             // width: calc(100vw - 400px);
-        }
-        .aside__container {
-            flex: 0 0 400px;
-            .main__aside {
-                background-color: white;
-                position: fixed;
-                width: 400px;
-                height: 100vh;
-            }
         }
     }
 }
