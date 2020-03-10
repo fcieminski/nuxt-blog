@@ -73,7 +73,8 @@ h3 {
 a,
 p,
 div,
-li {
+li,
+span {
     font-family: "Nunito";
     font-weight: 400;
     color: #363636;
@@ -115,4 +116,8 @@ li {
 
 .white--text {
     color: white;
+}
+
+.border--radius{
+    border-radius: 4px;
 }

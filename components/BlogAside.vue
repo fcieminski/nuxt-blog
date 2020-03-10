@@ -21,7 +21,7 @@ export default {
 .aside__container {
     flex: 0 0 400px;
     .main__aside {
-        background-color: #00695c;
+        background-color: $main-light-accent;
         position: fixed;
         width: 400px;
         height: 100vh;

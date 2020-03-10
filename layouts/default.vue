@@ -42,7 +42,7 @@ export default {
         margin-top: 56px;
         width: 90%;
         .main__container {
-            // width: calc(100vw - 400px);
+            width: 60vw;
         }
     }
 }

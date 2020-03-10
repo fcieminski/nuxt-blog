@@ -6,29 +6,29 @@
             :key="post.id"
         >
             <div class="highlight__content">
-                <div>
-                    <v-img
-                        class="white--text align-end"
-                        height="200px"
-                        width="300px"
-                        :src="post.image"
-                    ></v-img>
-                </div>
-                <div class="content__main">
-                    <div class="content__title">
-                        {{ post.desc.substr(1, 30) }}
+                <div class="d-flex">
+                    <div>
+                        <v-img
+                            class="white--text border--radius align-end"
+                            height="200px"
+                            width="300px"
+                            :src="post.image"
+                        ></v-img>
                     </div>
-                    <div>{{ post.desc.substr(1, 300) }}...</div>
+                    <div class="content__main">
+                        <div class="main__title">
+                            {{ post.desc.substr(1, 30) }}
+                        </div>
+                        <div class="main__description">{{ post.desc.substr(1, 300) }}...</div>
+                    </div>
+                </div>
+                <div class="content__actions">
+                    <v-btn color="#e68139" depressed dark>
+                        Czytaj
+                    </v-btn>
                 </div>
             </div>
             <div class="content__footer">
-                <!-- <v-btn color="orange" text>
-                    Share
-                </v-btn>
-
-                <v-btn color="orange" text>
-                    Explore
-                </v-btn> -->
                 <div class="d-flex justify-center align-center">
                     <v-avatar size="36px"
                         ><img :src="post.image" alt=""
@@ -67,18 +67,22 @@ export default {
         border: 1px solid rgba(0, 0, 0, 0.05);
         border-radius: 4px;
         padding: 20px;
-        display: flex;
-        justify-content: space-between;
         .content__main {
             margin-left: 20px;
+            .main__title {
+                font-weight: 700;
+                font-size: 2rem;
+                margin-bottom: 20px;
+                color: $secondary-color;
+            }
+            .main__description{
+                max-height: 110px;
+            }
         }
         .content__author {
         }
-        .content__title {
-            font-weight: 700;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #a2000f;
+        .content__actions {
+            text-align: right;
         }
     }
     .content__footer {
