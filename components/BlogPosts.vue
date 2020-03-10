@@ -9,7 +9,7 @@
                 <div class="d-flex">
                     <div>
                         <v-img
-                            class="white--text border--radius align-end"
+                            class="content__image white--text border--radius align-end"
                             height="200px"
                             width="300px"
                             :src="post.image"
@@ -19,7 +19,9 @@
                         <div class="main__title">
                             {{ post.desc.substr(1, 30) }}
                         </div>
-                        <div class="main__description">{{ post.desc.substr(1, 300) }}...</div>
+                        <div class="main__description">
+                            {{ post.desc.substr(1, 300) }}...
+                        </div>
                     </div>
                 </div>
                 <div class="content__actions">
@@ -59,6 +61,7 @@ export default {
 
 <style lang='scss' scoped>
 .post__highlight {
+    transition: all 0.1s;
     color: #363636;
     flex-direction: column;
     .highlight__content {
@@ -67,6 +70,8 @@ export default {
         border: 1px solid rgba(0, 0, 0, 0.05);
         border-radius: 4px;
         padding: 20px;
+        .content__image {
+        }
         .content__main {
             margin-left: 20px;
             .main__title {
@@ -75,7 +80,7 @@ export default {
                 margin-bottom: 20px;
                 color: $secondary-color;
             }
-            .main__description{
+            .main__description {
                 max-height: 110px;
             }
         }
@@ -101,5 +106,8 @@ export default {
             font-size: 0.9rem;
         }
     }
+}
+.post__highlight:hover {
+    // border-left: 10px solid green;
 }
 </style>

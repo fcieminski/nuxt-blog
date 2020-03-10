@@ -26,7 +26,7 @@ export default {
     name: 'BlogFooter',
     data() {
         return {
-            icons: ['mdi-facebook', 'mdi-linkedin', 'mdi-github-circle']
+            icons: ['mdi-facebook', 'mdi-linkedin', 'mdi-github']
         }
     }
 }
