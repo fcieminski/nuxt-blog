@@ -1,47 +1,52 @@
 <template>
     <div>
-        <div
-            class="ma-4 post__highlight d-flex justify-center"
-            v-for="post in posts"
-            :key="post.id"
-        >
-            <div class="highlight__content">
-                <div class="d-flex">
-                    <div>
-                        <v-img
-                            class="content__image white--text border--radius align-end"
-                            height="200px"
-                            width="300px"
-                            :src="post.image"
-                        ></v-img>
-                    </div>
-                    <div class="content__main">
-                        <div class="main__title">
-                            {{ post.desc.substr(1, 30) }}
+        <div v-if="searchPosts.length !== 0">
+            <div
+                class="ma-4 post__highlight d-flex justify-center"
+                v-for="post in searchPosts"
+                :key="post.id"
+            >
+                <div class="highlight__content">
+                    <div class="d-flex">
+                        <div>
+                            <v-img
+                                class="content__image white--text border--radius align-end"
+                                height="200px"
+                                width="300px"
+                                :src="post.image"
+                            ></v-img>
                         </div>
-                        <div class="main__description">
-                            {{ post.desc.substr(1, 300) }}...
-                        </div>
-                        <div class="content__actions">
-                            <nuxt-link to="/home">
-                                <v-btn color="#e68139" depressed dark>
-                                    Czytaj
-                                </v-btn>
-                            </nuxt-link>
+                        <div class="content__main">
+                            <div class="main__title">
+                                {{ post.desc.substr(1, 30) }}
+                            </div>
+                            <div class="main__description">
+                                {{ post.desc.substr(1, 300) }}...
+                            </div>
+                            <div class="content__actions">
+                                <nuxt-link :to="`/${post.id}`">
+                                    <v-btn color="#e68139" depressed dark>
+                                        Czytaj
+                                    </v-btn>
+                                </nuxt-link>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="content__footer">
-                <div class="d-flex justify-center align-center pr">
-                    <div class="author--highlight"></div>
-                    <v-avatar size="36px">
-                        <img :src="post.image" alt="author" />
-                    </v-avatar>
-                    <p class="footer__author">{{ post.name }}</p>
+                <div class="content__footer">
+                    <div class="d-flex justify-center align-center pr">
+                        <div class="author--highlight"></div>
+                        <v-avatar size="36px">
+                            <img :src="post.image" alt="author" />
+                        </v-avatar>
+                        <p class="footer__author">{{ post.name }}</p>
+                    </div>
+                    <span class="footer__date">{{ post.date }}</span>
                 </div>
-                <span class="footer__date">{{ post.date }}</span>
             </div>
+        </div>
+        <div v-else>
+            Brak postów!
         </div>
     </div>
 </template>
@@ -58,7 +63,16 @@ export default {
     },
     components: {},
     created() {},
-    computed: {},
+    computed: {
+        searchPosts() {
+            let searchText = this.$store.state.searchText
+                ? this.$store.state.searchText
+                : ''
+            return this.posts.filter(post =>
+                post.desc.toLowerCase().includes(searchText.toLowerCase())
+            )
+        }
+    },
     methods: {}
 }
 </script>
@@ -117,7 +131,7 @@ export default {
 
 .author--highlight {
     transition: all 0.5s;
-    background-color:#0b7e6e1c;
+    background-color: #0b7e6e1c;
     width: 30px;
     height: 30px;
     position: absolute;
@@ -125,11 +139,5 @@ export default {
     z-index: 0;
     transform: scale(0);
     left: 2px;
-}
-
-.post__highlight:hover {
-    .author--highlight {
-        transform: scale(2);
-    }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <v-app>
         <top-bar />
         <div class="main__box">
             <main class="main">
@@ -10,7 +10,7 @@
             </main>
         </div>
         <blog-footer />
-    </div>
+    </v-app>
 </template>
 
 <script>
@@ -33,7 +33,7 @@ export default {
 .main__box {
     background-color: white;
     width: 100vw;
-    overflow: hidden;
+    height: 100vh;
     .main {
         display: flex;
         justify-content: space-between;
