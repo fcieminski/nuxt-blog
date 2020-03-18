@@ -37,9 +37,8 @@ export default {
         justify-content: space-between;
         padding-left: 20px;
         padding-right: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 56px;
+     
+        margin: 56px auto;
         width: 90%;
         .main__container {
             width: 60vw;

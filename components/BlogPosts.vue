@@ -22,19 +22,22 @@
                         <div class="main__description">
                             {{ post.desc.substr(1, 300) }}...
                         </div>
+                        <div class="content__actions">
+                            <nuxt-link to="/home">
+                                <v-btn color="#e68139" depressed dark>
+                                    Czytaj
+                                </v-btn>
+                            </nuxt-link>
+                        </div>
                     </div>
-                </div>
-                <div class="content__actions">
-                    <v-btn color="#e68139" depressed dark>
-                        Czytaj
-                    </v-btn>
                 </div>
             </div>
             <div class="content__footer">
-                <div class="d-flex justify-center align-center">
-                    <v-avatar size="36px"
-                        ><img :src="post.image" alt=""
-                    /></v-avatar>
+                <div class="d-flex justify-center align-center pr">
+                    <div class="author--highlight"></div>
+                    <v-avatar size="36px">
+                        <img :src="post.image" alt="author" />
+                    </v-avatar>
                     <p class="footer__author">{{ post.name }}</p>
                 </div>
                 <span class="footer__date">{{ post.date }}</span>
@@ -45,6 +48,7 @@
 
 <script>
 import data from '../static/MOCK_DATA'
+
 export default {
     name: 'BlogPosts',
     data() {
@@ -74,6 +78,9 @@ export default {
         }
         .content__main {
             margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             .main__title {
                 font-weight: 700;
                 font-size: 2rem;
@@ -107,7 +114,22 @@ export default {
         }
     }
 }
+
+.author--highlight {
+    transition: all 0.5s;
+    background-color:#0b7e6e1c;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-radius: 100%;
+    z-index: 0;
+    transform: scale(0);
+    left: 2px;
+}
+
 .post__highlight:hover {
-    // border-left: 10px solid green;
+    .author--highlight {
+        transform: scale(2);
+    }
 }
 </style>
