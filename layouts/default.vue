@@ -32,12 +32,13 @@ export default {
 <style lang="scss" scoped>
 .main__box {
     background-color: white;
+    width: 100vw;
+    overflow: hidden;
     .main {
         display: flex;
         justify-content: space-between;
         padding-left: 20px;
         padding-right: 20px;
-     
         margin: 56px auto;
         width: 90%;
         .main__container {
