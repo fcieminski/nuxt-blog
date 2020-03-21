@@ -10,9 +10,9 @@
         </div>
 
         <div
+            :class="{ 'drawer--show': iconDrawer }"
             class="button__box"
-            :class="iconDrawer ? 'drawer--show' : 'drawer--hide'"
-            name="drawer"
+            ref="drawer"
         >
             <div class="d-flex flex-column">
                 <v-btn v-for="icon in icons" :key="icon" icon>
@@ -26,7 +26,7 @@
         <v-fab-transition>
             <v-btn
                 v-if="scrolled"
-                color="#0b7e6e"
+                color="#e68139"
                 fab
                 dark
                 small
@@ -99,8 +99,8 @@ export default {
     }
 }
 .button__box {
-    transition: all 0.4;
     position: fixed;
+    padding: 8px 0;
     display: flex;
     background-color: $secondary-light-accent;
     align-items: center;
@@ -108,29 +108,9 @@ export default {
     left: -40px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+    transition: left 0.4s;
     &.drawer--show {
-        animation: drawer-in ease-in 0.2s forwards;
-    }
-    &.drawer--hide {
-        animation: drawer-out ease-in 0.2s forwards;
-    }
-}
-
-@keyframes drawer-in {
-    from {
-        left: -40px;
-    }
-    to {
-        left: 0;
-    }
-}
-
-@keyframes drawer-out {
-    from {
-        left: 0;
-    }
-    to {
-        left: -40px;
+        left: 0px;
     }
 }
 </style>
