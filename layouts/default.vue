@@ -3,9 +3,9 @@
         <top-bar />
         <div class="main__box">
             <main class="main">
-                <div class="main__container">
+                <transition tag="div" class="main__container" name="fade">
                     <nuxt />
-                </div>
+                </transition>
                 <blog-aside />
             </main>
         </div>
@@ -46,4 +46,13 @@ export default {
         }
     }
 }
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
 </style>

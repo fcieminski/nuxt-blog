@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="posts--container">
         <div v-if="searchPosts.length !== 0">
             <div
                 class="ma-4 post__highlight d-flex justify-center"
@@ -140,4 +140,5 @@ export default {
     transform: scale(0);
     left: 2px;
 }
+
 </style>

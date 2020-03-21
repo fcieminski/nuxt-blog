@@ -1,26 +1,27 @@
 <template>
-    <div>HELOOOOOOOOO {{$route.params.post}}</div>
+    <div>HELOOOOOOOOO {{ $route.params.post }}</div>
 </template>
 
 <script>
+import data from '~/static/MOCK_DATA'
 export default {
-    name: 'name',
+    name: 'PostPage',
 
     data() {
-        return{
-    }
+        return {
+            posts: data
+        }
     },
-    components: {
-    },
-    created(){
-    },
+    components: {},
+    created() {},
     computed: {
+        currentPost() {
+            return this.posts.find(post => post.id === parseInt(this.$route.params.post))
+        }
     },
-    methods: {
-    },
-    }
+    methods: {}
+}
 </script>
 
 <style lang='scss' scoped>
-
 </style>

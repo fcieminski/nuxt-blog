@@ -1,6 +1,6 @@
 <template>
     <aside class="aside__container">
-        <div class="main__aside">
+        <div id="main--aside" class="main__aside">
             <div class="author">
                 <div class="author__image">
                     <img src="~static/author.png" alt="" />
