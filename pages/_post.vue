@@ -1,27 +1,41 @@
 <template>
-    <div>HELOOOOOOOOO {{ $route.params.post }}</div>
+    <div class="post__container">
+        <transition class="post" name="fade" tag="div">
+            <component :is="postComponent" />
+        </transition>
+    </div>
 </template>
 
 <script>
 import data from '~/static/MOCK_DATA'
 export default {
     name: 'PostPage',
+    layout: 'postlayout',
+
+    async created() {
+        try {
+            let post = await import(`~/content/${this.$route.params.post}.md`)
+            this.post = post.attributes
+            this.postComponent = post.vue.component
+        } catch (err) {
+            console.debug(err)
+        }
+    },
 
     data() {
         return {
-            posts: data
+            post: null,
+            postComponent: null
         }
-    },
-    components: {},
-    created() {},
-    computed: {
-        currentPost() {
-            return this.posts.find(post => post.id === parseInt(this.$route.params.post))
-        }
-    },
-    methods: {}
+    }
 }
 </script>
 
 <style lang='scss' scoped>
+.post__container {
+    margin: 18px auto;
+    width: 70%;
+    .post {
+    }
+}
 </style>

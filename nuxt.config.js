@@ -1,4 +1,7 @@
 const colors = require('vuetify/es5/util/colors').default
+const path = require('path')
+const Mode = require('frontmatter-markdown-loader/mode')
+
 
 module.exports = {
   mode: 'universal',
@@ -79,6 +82,15 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.md$/,
+        loader: 'frontmatter-markdown-loader',
+        include: path.resolve(__dirname, 'content'),
+        options: {
+          mode: [Mode.VUE_COMPONENT, Mode.META],
+        }
+      })
+    }
   }
 }

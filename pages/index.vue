@@ -12,10 +12,6 @@ export default {
         BlogPosts
     },
 
-    mounted() {
-        gsap.set('#main--aside', { x: 0 })
-    },
-
     beforeRouteLeave(to, from, next) {
         gsap.fromTo(
             '#main--aside',
@@ -32,6 +28,15 @@ export default {
             {
                 duration: 0.5,
                 x: '-120%',
+                ease: 'power4.inOut',
+            }
+        )
+        gsap.fromTo(
+            '#footer',
+            { y: 0 },
+            {
+                duration: 0.5,
+                y: '100%',
                 ease: 'power4.inOut',
                 onComplete: () => {
                     next()

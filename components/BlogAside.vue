@@ -1,5 +1,5 @@
 <template>
-    <aside class="aside__container">
+    <aside id="aside--container" class="aside__container">
         <div id="main--aside" class="main__aside">
             <div class="author">
                 <div class="author__image">

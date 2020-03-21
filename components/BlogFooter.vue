@@ -1,5 +1,5 @@
 <template>
-    <v-footer fixed dark padless>
+    <v-footer id="footer" fixed dark padless>
         <v-card flat tile class="footer--color white--text text-center">
             <v-card-text class="d-flex justify-space align-center">
                 <div class="white--text">
