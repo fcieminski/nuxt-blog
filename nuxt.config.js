@@ -33,7 +33,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '@/plugins/prism', ssr: false }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -88,7 +88,7 @@ module.exports = {
         loader: 'frontmatter-markdown-loader',
         include: path.resolve(__dirname, 'content'),
         options: {
-          mode: [Mode.VUE_COMPONENT, Mode.META],
+          mode: [Mode.VUE_COMPONENT, Mode.META]
         }
       })
     }

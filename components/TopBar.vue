@@ -3,7 +3,7 @@
         <v-app-bar fixed color="#00695C" dark>
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
             <v-toolbar-title class="white--text"
-                >Page title</v-toolbar-title
+                >Front-end okiem Juniora</v-toolbar-title
             >
             <v-spacer></v-spacer>
             <v-btn icon>
