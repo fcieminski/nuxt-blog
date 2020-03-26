@@ -19,11 +19,6 @@
 				<v-icon>mdi-chevron-right</v-icon>
 			</v-btn>
 		</div>
-		<v-fab-transition>
-			<v-btn v-if="scrolled" color="#e68139" fab dark small fixed bottom right @click="goUp">
-				<v-icon>mdi-chevron-up</v-icon>
-			</v-btn>
-		</v-fab-transition>
 	</v-app>
 </template>
 
@@ -46,29 +41,6 @@
 				iconDrawer: false,
 				currentScrollPosition: 0
 			}
-		},
-
-		mounted() {
-			this.html = document.querySelector('html')
-			window.addEventListener('scroll', this.scrollPosition)
-		},
-
-		methods: {
-			scrollPosition() {
-				if (this.html.scrollTop >= this.html.scrollTopMax / 2) {
-					this.scrolled = true
-				} else {
-					this.scrolled = false
-				}
-				this.currentScrollPosition = window.scrollY
-			},
-			goUp() {
-				this.html.scrollTo({ top: 0, behavior: 'smooth' })
-			}
-		},
-
-		destroyed() {
-			window.removeEventListener('scroll', this.scrollPosition)
 		}
 	}
 </script>

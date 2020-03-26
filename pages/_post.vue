@@ -17,6 +17,11 @@
 				</v-list-item-content>
 			</v-list-item>
 		</v-list>
+		<v-fab-transition>
+			<v-btn v-if="scrolled" color="#e68139" fab dark small fixed bottom right @click="goUp">
+				<v-icon>mdi-chevron-up</v-icon>
+			</v-btn>
+		</v-fab-transition>
 	</div>
 </template>
 
@@ -33,20 +38,32 @@
 			} catch (err) {
 				console.debug(err)
 			}
-        },
-        
-        props: {
-            currentScrollPosition: {
-                type: Number,
-                default: 0
-            }
-        },
+		},
+		mounted() {
+			this.html = document.querySelector('html')
+			window.addEventListener('scroll', this.scrollPosition)
+		},
 
 		data() {
 			return {
 				post: null,
 				postComponent: null,
-				currentActive: null
+				currentActive: null,
+				scrolled: false,
+				currentScrollPosition: 0
+			}
+		},
+
+		computed: {
+			getAnchorElements() {
+				let ele = []
+				return Object.keys(this.post.tableOfContent).reduce((prev, ele, index, arr) => {
+					const element = document.querySelector(ele)
+					const offset = 20
+					const position = element.getBoundingClientRect().top - offset
+					prev[ele] = this.currentScrollPosition >= position
+					return prev
+				}, {})
 			}
 		},
 
@@ -60,7 +77,21 @@
 				const possitionToScroll = elementRect - bodyRect - offset
 
 				window.scrollTo({ top: possitionToScroll, behavior: 'smooth' })
+			},
+			scrollPosition() {
+				if (this.html.scrollTop >= this.html.scrollTopMax / 2) {
+					this.scrolled = true
+				} else {
+					this.scrolled = false
+				}
+				this.currentScrollPosition = window.scrollY
+			},
+			goUp() {
+				this.html.scrollTo({ top: 0, behavior: 'smooth' })
 			}
+		},
+		destroyed() {
+			window.removeEventListener('scroll', this.scrollPosition)
 		}
 	}
 </script>
