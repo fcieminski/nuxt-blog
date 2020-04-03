@@ -1,6 +1,5 @@
 <template>
 	<v-app>
-		<top-bar />
 		<div class="main__box">
 			<main class="main">
 				<transition tag="div" class="main__container" name="fade">
@@ -41,7 +40,7 @@
 				iconDrawer: false,
 				currentScrollPosition: 0
 			}
-		}
+		},
 	}
 </script>
 

@@ -1,6 +1,5 @@
 <template>
     <v-app>
-        <top-bar />
         <div class="main__box">
             <main class="main">
                 <transition tag="div" class="main__container" name="fade">
@@ -9,7 +8,6 @@
                 <blog-aside />
             </main>
         </div>
-        <blog-footer />
     </v-app>
 </template>
 
@@ -39,7 +37,7 @@ export default {
         justify-content: space-between;
         padding-left: 20px;
         padding-right: 20px;
-        margin: 56px auto;
+        margin: 0 auto;
         width: 90%;
         .main__container {
             width: 60vw;

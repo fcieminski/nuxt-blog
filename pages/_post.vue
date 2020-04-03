@@ -6,7 +6,6 @@
 
 		<v-list light class="content__box">
 			<v-list-item
-				:input-value="currentActive"
 				ripple
 				class="cp"
 				v-for="(content, key, index) in post.tableOfContent"
@@ -55,16 +54,28 @@
 		},
 
 		computed: {
-			getAnchorElements() {
-				let ele = []
-				return Object.keys(this.post.tableOfContent).reduce((prev, ele, index, arr) => {
-					const element = document.querySelector(ele)
-					const offset = 20
-					const position = element.getBoundingClientRect().top - offset
-					prev[ele] = this.currentScrollPosition >= position
-					return prev
-				}, {})
-			}
+			// getAnchorElements() {
+			// 	let mappedElements = Object.keys(this.post.tableOfContent).reduce((prev, ele, index, arr) => {
+			// 		const element = document.querySelector(ele)
+			// 		if (element) {
+			// 			const position = element.offsetTop
+			// 			const offset = 30
+			// 			prev[ele] = position + offset
+			// 		}
+			// 		return prev
+			// 	}, {})
+			// 	return Object.entries(mappedElements).map((ele, index, arr) => {
+			// 		if (index + 1 !== arr.length) {
+			// 			return {
+			// 				[ele[0]]: this.currentScrollPosition > ele[1] && this.currentScrollPosition < arr[index + 1][1]
+			// 			}
+			// 		} else {
+			// 			return {
+			// 				[ele[0]]: true
+			// 			}
+			// 		}
+			// 	})
+			// }
 		},
 
 		methods: {
