@@ -31,18 +31,6 @@ export default {
                 ease: 'power4.inOut',
             }
         )
-        gsap.fromTo(
-            '#footer',
-            { y: 0 },
-            {
-                duration: 0.5,
-                y: '100%',
-                ease: 'power4.inOut',
-                onComplete: () => {
-                    next()
-                }
-            }
-        )
     }
 }
 </script>

@@ -1,16 +1,12 @@
 <template>
 	<div v-if="post" class="post__container">
-		<transition class="post" name="fade" tag="div">
-			<component :is="postComponent" />
+        <post-header :author="post.author" :date="post.date" :title="post.title" />
+		<transition  name="fade" tag="div">
+			<component class="post" :is="postComponent" />
 		</transition>
 
 		<v-list light class="content__box">
-			<v-list-item
-				ripple
-				class="cp"
-				v-for="(content, key, index) in post.tableOfContent"
-				:key="index"
-			>
+			<v-list-item ripple class="cp" v-for="(content, key, index) in post.tableOfContent" :key="index">
 				<v-list-item-content @click="goToElement(key)">
 					<v-list-item-title>{{ content }}</v-list-item-title>
 				</v-list-item-content>
@@ -25,9 +21,14 @@
 </template>
 
 <script>
+	import PostHeader from '../components/PostHeader'
 	export default {
 		name: 'PostPage',
 		layout: 'postlayout',
+
+		components: {
+			PostHeader
+		},
 
 		async created() {
 			try {
@@ -109,8 +110,11 @@
 
 <style lang="scss" scoped>
 	.post__container {
-		margin: 18px auto;
-		width: 65%;
+		margin: 0 auto;
+        width: 65%;
+        .post{
+            margin: 32px 0;
+        }
 	}
 
 	.content__box {

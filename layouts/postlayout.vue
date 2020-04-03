@@ -7,7 +7,6 @@
 				</transition>
 			</main>
 		</div>
-
 		<div :class="{ 'drawer--show': iconDrawer }" class="button__box" ref="drawer">
 			<div class="d-flex flex-column">
 				<v-btn v-for="icon in icons" :key="icon" icon>
@@ -54,7 +53,7 @@
 			justify-content: space-between;
 			padding-left: 20px;
 			padding-right: 20px;
-			margin: 56px auto;
+			margin: 0 auto;
 			width: 90%;
 			.main__container {
 				width: 60vw;
